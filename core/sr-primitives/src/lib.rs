@@ -145,6 +145,16 @@ impl From<f32> for Permill {
 	}
 }
 
+impl From<codec::Compact<u32>> for Permill {
+	fn from(x: codec::Compact<u32>) -> Permill { Permill(x.0) }
+}
+
+impl Into<codec::Compact<u32>> for Permill {
+	fn into(self) -> codec::Compact<u32> {
+		codec::Compact(self.0)
+	}
+}
+
 /// Perbill is parts-per-billion. It stores a value between 0 and 1 in fixed point and
 /// provides a means to multiply some other value by that.
 #[cfg_attr(feature = "std", derive(Serialize, Deserialize, Debug))]
@@ -197,6 +207,16 @@ impl From<f64> for Perbill {
 impl From<f32> for Perbill {
 	fn from(x: f32) -> Perbill {
 		Perbill::from_fraction(x as f64)
+	}
+}
+
+impl From<codec::Compact<u32>> for Perbill {
+	fn from(x: codec::Compact<u32>) -> Perbill { Perbill(x.0) }
+}
+
+impl Into<codec::Compact<u32>> for Perbill {
+	fn into(self) -> codec::Compact<u32> {
+		codec::Compact(self.0)
 	}
 }
 
@@ -616,5 +636,22 @@ mod tests {
 
 		// check that as-style methods are not working with regular items
 		assert!(b1.as_authorities_change().is_none());
+	}
+
+	#[test]
+	fn compact_permill_perbill_encoding() {
+		let n = 10;
+
+		let compact: codec::Compact<u32> = super::Permill(n).into();
+		let encoded = compact.encode();
+		let decoded = <codec::Compact<u32>>::decode(&mut & encoded[..]).unwrap();
+		let permill: super::Permill = decoded.into();
+		assert_eq!(permill, super::Permill(n));
+
+		let compact: codec::Compact<u32> = super::Perbill(n).into();
+		let encoded = compact.encode();
+		let decoded = <codec::Compact<u32>>::decode(&mut & encoded[..]).unwrap();
+		let permill: super::Perbill = decoded.into();
+		assert_eq!(permill, super::Perbill(n));
 	}
 }
