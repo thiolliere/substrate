@@ -88,10 +88,10 @@ use srml_support::{
 use system::ensure_none;
 
 mod app {
-	pub use app_crypto::sr25519 as crypto;
-	use app_crypto::{app_crypto, key_types::IM_ONLINE, sr25519};
+	pub use app_crypto::ed25519 as crypto;
+	use app_crypto::{app_crypto, key_types::IM_ONLINE, ed25519};
 
-	app_crypto!(sr25519, IM_ONLINE);
+	app_crypto!(ed25519, IM_ONLINE);
 }
 
 /// A Babe authority keypair. Necessarily equivalent to the schnorrkel public key used in
