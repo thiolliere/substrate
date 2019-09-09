@@ -251,6 +251,8 @@ decl_event!(
 		Burnt(Balance),
 		/// Spending has finished; this is the amount that rolls over until next spend.
 		Rollover(Balance),
+		///
+		HowMuch(Balance),
 	}
 );
 
@@ -345,6 +347,7 @@ impl<T: Trait> OnDilution<BalanceOf<T>> for Module<T> {
 			if let Some(funding) = total_issuance.checked_sub(&portion) {
 				let funding = funding / portion;
 				if let Some(funding) = funding.checked_mul(&minted) {
+					Self::deposit_event(RawEvent::HowMuch(funding));
 					Self::on_unbalanced(T::Currency::issue(funding));
 				}
 			}
