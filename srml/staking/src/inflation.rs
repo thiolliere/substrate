@@ -122,26 +122,26 @@ impl PiecewiseLinear {
 /// `i_npos_precision` test.
 const I_NPOS: PiecewiseLinear = PiecewiseLinear {
 	pieces: [
-		(0, Linear { negative_a: false, a: 150000000000, b: 25000000000 }),
-		(500000000000, Linear { negative_a: true, a: 986493987000, b: 593246993000 }),
-		(507648979000, Linear { negative_a: true, a: 884661327000, b: 541551747000 }),
-		(515726279000, Linear { negative_a: true, a: 788373842000, b: 491893761000 }),
-		(524282719000, Linear { negative_a: true, a: 697631517000, b: 444319128000 }),
-		(533378749000, Linear { negative_a: true, a: 612434341000, b: 398876765000 }),
-		(543087019000, Linear { negative_a: true, a: 532782338000, b: 355618796000 }),
-		(553495919000, Linear { negative_a: true, a: 458675508000, b: 314600968000 }),
-		(564714479000, Linear { negative_a: true, a: 390113843000, b: 275883203000 }),
-		(576879339000, Linear { negative_a: true, a: 327097341000, b: 239530285000 }),
-		(590164929000, Linear { negative_a: true, a: 269626004000, b: 205612717000 }),
-		(604798839000, Linear { negative_a: true, a: 217699848000, b: 174207838000 }),
-		(621085859000, Linear { negative_a: true, a: 171318873000, b: 145401271000 }),
-		(639447429000, Linear { negative_a: true, a: 130483080000, b: 119288928000 }),
-		(660489879000, Linear { negative_a: true, a: 95192479000, b: 95979842000 }),
-		(685131379000, Linear { negative_a: true, a: 65447076000, b: 75600334000 }),
-		(714860569000, Linear { negative_a: true, a: 41246910000, b: 58300589000 }),
-		(752334749000, Linear { negative_a: true, a: 22592084000, b: 44265915000 }),
-		(803047659000, Linear { negative_a: true, a: 9482996000, b: 33738693000 }),
-		(881691659000, Linear { negative_a: true, a: 2572702000, b: 27645944000 })
+		(0, Linear { negative_a: false, a: 150000, b: 25000 }),
+		(500000, Linear { negative_a: true, a: 986493, b: 593246 }),
+		(507648, Linear { negative_a: true, a: 884661, b: 541551 }),
+		(515726, Linear { negative_a: true, a: 788373, b: 491893 }),
+		(524282, Linear { negative_a: true, a: 697631, b: 444319 }),
+		(533378, Linear { negative_a: true, a: 612434, b: 398876 }),
+		(543087, Linear { negative_a: true, a: 532782, b: 355618 }),
+		(553495, Linear { negative_a: true, a: 458675, b: 314600 }),
+		(564714, Linear { negative_a: true, a: 390113, b: 275883 }),
+		(576879, Linear { negative_a: true, a: 327097, b: 239530 }),
+		(590164, Linear { negative_a: true, a: 269626, b: 205612 }),
+		(604798, Linear { negative_a: true, a: 217699, b: 174207 }),
+		(621085, Linear { negative_a: true, a: 171318, b: 145401 }),
+		(639447, Linear { negative_a: true, a: 130483, b: 119288 }),
+		(660489, Linear { negative_a: true, a: 95192, b: 95979 }),
+		(685131, Linear { negative_a: true, a: 65447, b: 75600 }),
+		(714860, Linear { negative_a: true, a: 41246, b: 58300 }),
+		(752334, Linear { negative_a: true, a: 22592, b: 44265 }),
+		(803047, Linear { negative_a: true, a: 9482, b: 33738 }),
+		(881691, Linear { negative_a: true, a: 2572, b: 27645 })
 	]
 };
 
@@ -163,7 +163,7 @@ where
 {
 	let year_duration: N = SECOND_PER_YEAR.into();
 	I_NPOS.calculate_for_fraction_times_denominator(npos_token_staked, total_tokens)
-		* era_duration / year_duration
+		* era_duration / (year_duration)
 }
 
 #[allow(non_upper_case_globals, non_snake_case)] // To stick with paper notations
