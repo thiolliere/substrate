@@ -657,6 +657,7 @@ decl_event!(
 		/// An old slashing report from a prior era was discarded because it could
 		/// not be processed.
 		OldSlashingReportDiscarded(SessionIndex),
+		ComputeTotalPayout(Balance, Balance, Balance, Balance),
 	}
 );
 
@@ -1173,12 +1174,15 @@ impl<T: Trait> Module<T> {
 			let validator_len: BalanceOf<T> = (validators.len() as u32).into();
 			let total_rewarded_stake = Self::slot_stake() * validator_len;
 
+			let a1 = total_rewarded_stake.clone();
+			let a2 = T::Currency::total_issuance();
+			let a3 = <BalanceOf<T>>::from(era_duration.saturated_into::<u32>());
+
 			let total_payout = inflation::compute_total_payout(
-				total_rewarded_stake.clone(),
-				T::Currency::total_issuance(),
-				// Era of duration more than u32::MAX is rewarded as u32::MAX.
-				<BalanceOf<T>>::from(era_duration.saturated_into::<u32>()),
+				a1.clone(), a2.clone(), a3.clone(),
 			);
+			Self::deposit_event(RawEvent::ComputeTotalPayout(a1, a2, a3, total_payout));
+
 
 			let mut total_imbalance = <PositiveImbalanceOf<T>>::zero();
 
