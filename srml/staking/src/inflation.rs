@@ -122,26 +122,26 @@ impl PiecewiseLinear {
 /// `i_npos_precision` test.
 const I_NPOS: PiecewiseLinear = PiecewiseLinear {
 	pieces: [
-		(0, Linear { negative_a: false, a: 150000000, b: 25000000 }),
-		(500000000, Linear { negative_a: true, a: 986493987, b: 593246993 }),
-		(507648979, Linear { negative_a: true, a: 884661327, b: 541551747 }),
-		(515726279, Linear { negative_a: true, a: 788373842, b: 491893761 }),
-		(524282719, Linear { negative_a: true, a: 697631517, b: 444319128 }),
-		(533378749, Linear { negative_a: true, a: 612434341, b: 398876765 }),
-		(543087019, Linear { negative_a: true, a: 532782338, b: 355618796 }),
-		(553495919, Linear { negative_a: true, a: 458675508, b: 314600968 }),
-		(564714479, Linear { negative_a: true, a: 390113843, b: 275883203 }),
-		(576879339, Linear { negative_a: true, a: 327097341, b: 239530285 }),
-		(590164929, Linear { negative_a: true, a: 269626004, b: 205612717 }),
-		(604798839, Linear { negative_a: true, a: 217699848, b: 174207838 }),
-		(621085859, Linear { negative_a: true, a: 171318873, b: 145401271 }),
-		(639447429, Linear { negative_a: true, a: 130483080, b: 119288928 }),
-		(660489879, Linear { negative_a: true, a: 95192479, b: 95979842 }),
-		(685131379, Linear { negative_a: true, a: 65447076, b: 75600334 }),
-		(714860569, Linear { negative_a: true, a: 41246910, b: 58300589 }),
-		(752334749, Linear { negative_a: true, a: 22592084, b: 44265915 }),
-		(803047659, Linear { negative_a: true, a: 9482996, b: 33738693 }),
-		(881691659, Linear { negative_a: true, a: 2572702, b: 27645944 })
+		(0, Linear { negative_a: false, a: 150000000000, b: 25000000000 }),
+		(500000000000, Linear { negative_a: true, a: 986493987000, b: 593246993000 }),
+		(507648979000, Linear { negative_a: true, a: 884661327000, b: 541551747000 }),
+		(515726279000, Linear { negative_a: true, a: 788373842000, b: 491893761000 }),
+		(524282719000, Linear { negative_a: true, a: 697631517000, b: 444319128000 }),
+		(533378749000, Linear { negative_a: true, a: 612434341000, b: 398876765000 }),
+		(543087019000, Linear { negative_a: true, a: 532782338000, b: 355618796000 }),
+		(553495919000, Linear { negative_a: true, a: 458675508000, b: 314600968000 }),
+		(564714479000, Linear { negative_a: true, a: 390113843000, b: 275883203000 }),
+		(576879339000, Linear { negative_a: true, a: 327097341000, b: 239530285000 }),
+		(590164929000, Linear { negative_a: true, a: 269626004000, b: 205612717000 }),
+		(604798839000, Linear { negative_a: true, a: 217699848000, b: 174207838000 }),
+		(621085859000, Linear { negative_a: true, a: 171318873000, b: 145401271000 }),
+		(639447429000, Linear { negative_a: true, a: 130483080000, b: 119288928000 }),
+		(660489879000, Linear { negative_a: true, a: 95192479000, b: 95979842000 }),
+		(685131379000, Linear { negative_a: true, a: 65447076000, b: 75600334000 }),
+		(714860569000, Linear { negative_a: true, a: 41246910000, b: 58300589000 }),
+		(752334749000, Linear { negative_a: true, a: 22592084000, b: 44265915000 }),
+		(803047659000, Linear { negative_a: true, a: 9482996000, b: 33738693000 }),
+		(881691659000, Linear { negative_a: true, a: 2572702000, b: 27645944000 })
 	]
 };
 
